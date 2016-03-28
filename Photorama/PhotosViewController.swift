@@ -11,6 +11,12 @@ import UIKit
 class PhotosViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    var store: PhotoStore!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        store.fetchRecentPhotos()
+    }
     
 }
