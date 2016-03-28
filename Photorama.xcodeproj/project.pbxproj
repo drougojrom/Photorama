@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		30C943821CA929160016AC76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C943811CA929160016AC76 /* AppDelegate.swift */; };
-		30C943841CA929160016AC76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C943831CA929160016AC76 /* ViewController.swift */; };
 		30C943871CA929160016AC76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C943851CA929160016AC76 /* Main.storyboard */; };
 		30C943891CA929160016AC76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C943881CA929160016AC76 /* Assets.xcassets */; };
 		30C9438C1CA929160016AC76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C9438A1CA929160016AC76 /* LaunchScreen.storyboard */; };
 		30C943941CA929580016AC76 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C943931CA929580016AC76 /* PhotosViewController.swift */; };
+		30C943961CA930D60016AC76 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C943951CA930D60016AC76 /* FlickrAPI.swift */; };
+		30C943981CA940350016AC76 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C943971CA940350016AC76 /* PhotoStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		30C9437E1CA929160016AC76 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C943811CA929160016AC76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30C943831CA929160016AC76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		30C943861CA929160016AC76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30C943881CA929160016AC76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30C9438B1CA929160016AC76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30C9438D1CA929160016AC76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C943931CA929580016AC76 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		30C943951CA930D60016AC76 /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
+		30C943971CA940350016AC76 /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				30C943811CA929160016AC76 /* AppDelegate.swift */,
-				30C943831CA929160016AC76 /* ViewController.swift */,
 				30C943931CA929580016AC76 /* PhotosViewController.swift */,
 				30C943851CA929160016AC76 /* Main.storyboard */,
+				30C943951CA930D60016AC76 /* FlickrAPI.swift */,
+				30C943971CA940350016AC76 /* PhotoStore.swift */,
 				30C943881CA929160016AC76 /* Assets.xcassets */,
 				30C9438A1CA929160016AC76 /* LaunchScreen.storyboard */,
 				30C9438D1CA929160016AC76 /* Info.plist */,
@@ -139,8 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C943961CA930D60016AC76 /* FlickrAPI.swift in Sources */,
 				30C943941CA929580016AC76 /* PhotosViewController.swift in Sources */,
-				30C943841CA929160016AC76 /* ViewController.swift in Sources */,
+				30C943981CA940350016AC76 /* PhotoStore.swift in Sources */,
 				30C943821CA929160016AC76 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
