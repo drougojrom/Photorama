@@ -17,18 +17,21 @@ struct FlickrAPI {
     private static let baseURLString = "https://api.flickr.com/services/rest"
     private static let APIKey = "073a626094e442c586d1642e7ed079c5"
     
-    private static func flickrURL(method method: Method, parameters: [String:String]?) -> NSURL {
+    private static func flickrURL(method method: Method,
+                                  parameters: [String:String]?) -> NSURL {
         
         let components = NSURLComponents(string: baseURLString)!
         var queryItems = [NSURLQueryItem]()
         
-        let baseParams = ["method": method.rawValue,
-                          "format": "json",
-                          "nojsoncallback": 1,
-                          "api_key": APIKey
-                         ]
+       let baseParams = [
+            "method" : method.rawValue,
+            "format" : "json",
+            "nojsoncallback" : "1",
+            "api_key" : APIKey
+        ]
+        
         for (key, value) in baseParams {
-            let item = NSURLQueryItem(name: key as! String, value: (value as! String))
+            let item = NSURLQueryItem(name: key, value: value)
             queryItems.append(item)
         }
         
@@ -38,12 +41,15 @@ struct FlickrAPI {
                 queryItems.append(item)
             }
         }
+        
         components.queryItems = queryItems
         return components.URL!
+        
     }
     
     static func recentPhotosURL() -> NSURL {
-        return flickrURL(method : .RecentPhotos, parameters: ["extras": "url_h, date_taken"])
+        return flickrURL(method: .RecentPhotos,
+                         parameters: ["extras": "url_h,date_taken"])
     }
     
 }
