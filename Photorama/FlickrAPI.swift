@@ -9,7 +9,7 @@
 import Foundation
 
 enum Method: String {
-    case RecentPhotos = "flickr.photos"
+    case RecentPhotos = "flickr.photos.getRecent"
 }
 
 struct FlickrAPI {
@@ -49,7 +49,7 @@ struct FlickrAPI {
     
     static func recentPhotosURL() -> NSURL {
         return flickrURL(method: .RecentPhotos,
-                         parameters: ["extras": "url_h,date_taken"])
+                         parameters: ["extras": "url_h"])
     }
     
 }
