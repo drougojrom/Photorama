@@ -36,6 +36,7 @@ struct FlickrAPI {
                                   parameters: [String:String]?) -> NSURL {
         
         let components = NSURLComponents(string: baseURLString)!
+        
         var queryItems = [NSURLQueryItem]()
         
        let baseParams = [
@@ -60,6 +61,12 @@ struct FlickrAPI {
         components.queryItems = queryItems
         return components.URL!
         
+    }
+    // get recent photos
+    
+    static func recentPhotosURL() -> NSURL {
+        return flickrURL(method: .RecentPhotos,
+                         parameters: ["extras": "url_h, date_taken"])
     }
     
     // JSON into a photo
@@ -113,11 +120,6 @@ struct FlickrAPI {
         catch let error {
             return .Failure(error)
         }
-    }
-    
-    static func recentPhotosURL() -> NSURL {
-        return flickrURL(method: .RecentPhotos,
-                         parameters: ["extras": "url_h"])
     }
     
 }

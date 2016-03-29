@@ -22,6 +22,21 @@ class PhotosViewController: UIViewController {
             switch photosResult {
             case let .Success(photos):
                 print("Successfully found \(photos.count) number of photos")
+                
+                if let firstPhoto = photos.first {
+                    self.store.fetchImageForPhoto(firstPhoto) {
+                        (imageResult) -> Void in
+                        switch imageResult {
+                        case let .Success(image):
+                            NSOperationQueue.mainQueue().addOperationWithBlock {
+                                self.imageView.image = image
+                            }
+                        case let .Failure(error):
+                            print("Error fetching an image: \(error)")
+                        }
+                    }
+                }
+                
             case let .Failure(error):
                 print("Error fetching revent photos \(error)")
             }
