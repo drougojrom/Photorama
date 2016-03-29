@@ -12,7 +12,7 @@ enum Method: String {
     case RecentPhotos = "flickr.photos.getRecent"
 }
 
-enum PhotoResult {
+enum PhotosResult {
     case Success([Photo])
     case Failure(ErrorType)
 }
@@ -77,19 +77,21 @@ struct FlickrAPI {
                     return nil
         }
         return Photo(title: title, photoID: photoID, remoteURL: url, dateTaken: dateTaken)
-        
     }
     
     // NSJSONSerialization into NSData objects func
     
-    static func phorosFromJSONData(data: NSData) -> PhotoResult {
+    static func phorosFromJSONData(data: NSData) -> PhotosResult {
         do {
             let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
             
-            guard let jsonDictionary = jsonObject as? [NSObject:AnyObject], photos = jsonDictionary["photos"] as? [String:AnyObject], photosArray = photos["photo"] as? [[String:AnyObject]] else {
-                
-                // json structure is different and does not suite
-                return .Failure(FlickrError.InvalidJSONData)
+            guard let
+                jsonDictionary = jsonObject as? [NSObject:AnyObject],
+                photos = jsonDictionary["photos"] as? [String:AnyObject],
+                photosArray = photos["photo"] as? [[String:AnyObject]] else {
+                    
+                    // json structure doesnt match our expectations
+                    return .Failure(FlickrError.InvalidJSONData)
             }
             
             var finalPhotos = [Photo]()
@@ -103,12 +105,11 @@ struct FlickrAPI {
             if finalPhotos.count == 0 && photosArray.count > 0 {
                 // we werent able to parse any photos
                 // maybe json format was changed
+                
                 return .Failure(FlickrError.InvalidJSONData)
             }
-            
             return .Success(finalPhotos)
         }
-            
         catch let error {
             return .Failure(error)
         }
