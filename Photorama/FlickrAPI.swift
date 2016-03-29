@@ -14,7 +14,7 @@ enum Method: String {
 
 enum PhotoResult {
     case Success([Photo])
-    case Failure([Photo])
+    case Failure(ErrorType)
 }
 
 enum FlickrError: ErrorType {
@@ -86,13 +86,26 @@ struct FlickrAPI {
         do {
             let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
             
-            guard let jsonDictionary = jsonObject as? [NSObject:AnyObject], photos = jsonDictionary["photos"] as? [String:AnyObject], photoArray = photos["photo"] as? [[String:AnyObject]] else {
+            guard let jsonDictionary = jsonObject as? [NSObject:AnyObject], photos = jsonDictionary["photos"] as? [String:AnyObject], photosArray = photos["photo"] as? [[String:AnyObject]] else {
                 
                 // json structure is different and does not suite
                 return .Failure(FlickrError.InvalidJSONData)
             }
             
             var finalPhotos = [Photo]()
+            
+            for photoJSON in photosArray {
+                if let photo = photoFromJSONObject(photoJSON) {
+                    finalPhotos.append(photo)
+                }
+            }
+            
+            if finalPhotos.count == 0 && photosArray.count > 0 {
+                // we werent able to parse any photos
+                // maybe json format was changed
+                return .Failure(FlickrError.InvalidJSONData)
+            }
+            
             return .Success(finalPhotos)
         }
             
