@@ -17,10 +17,20 @@ enum PhotoResult {
     case Failure([Photo])
 }
 
+enum FlickrError: ErrorType {
+    case InvalidJSONData
+}
+
 struct FlickrAPI {
     
     private static let baseURLString = "https://api.flickr.com/services/rest"
     private static let APIKey = "073a626094e442c586d1642e7ed079c5"
+    
+    private static let dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter
+    }()
     
     private static func flickrURL(method method: Method,
                                   parameters: [String:String]?) -> NSURL {
@@ -57,9 +67,17 @@ struct FlickrAPI {
     static func phorosFromJSONData(data: NSData) -> PhotoResult {
         do {
             let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+            
+            guard let jsonDictionary = jsonObject as? [NSObject:AnyObject], photos = jsonDictionary["photos"] as? [String:AnyObject], photoArray = photos["photo"] as? [[String:AnyObject]] else {
+                
+                // json structure is different and does not suite
+                return .Failure(FlickrError.InvalidJSONData)
+            }
+            
             var finalPhotos = [Photo]()
             return .Success(finalPhotos)
         }
+            
         catch let error {
             return .Failure(error)
         }
