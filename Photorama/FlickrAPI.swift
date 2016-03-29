@@ -12,6 +12,11 @@ enum Method: String {
     case RecentPhotos = "flickr.photos.getRecent"
 }
 
+enum PhotoResult {
+    case Success([Photo])
+    case Failure([Photo])
+}
+
 struct FlickrAPI {
     
     private static let baseURLString = "https://api.flickr.com/services/rest"
@@ -45,6 +50,19 @@ struct FlickrAPI {
         components.queryItems = queryItems
         return components.URL!
         
+    }
+    
+    // NSJSONSerialization into NSData objects func
+    
+    static func phorosFromJSONData(data: NSData) -> PhotoResult {
+        do {
+            let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+            var finalPhotos = [Photo]()
+            return .Success(finalPhotos)
+        }
+        catch let error {
+            return .Failure(error)
+        }
     }
     
     static func recentPhotosURL() -> NSURL {
