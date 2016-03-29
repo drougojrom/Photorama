@@ -62,6 +62,24 @@ struct FlickrAPI {
         
     }
     
+    // JSON into a photo
+    
+    private static func photoFromJSONObject(json: [String: AnyObject]) -> Photo? {
+        guard let
+                photoID = json["id"] as? String,
+                title = json["title"] as? String,
+                dateString = json["datetaken"] as? String,
+                photoURLString = json["url_h"] as? String,
+                url = NSURL(string: photoURLString),
+                dateTaken = dateFormatter.dateFromString(dateString) else {
+                
+                    // dont have enough info for a photo
+                    return nil
+        }
+        return Photo(title: title, photoID: photoID, remoteURL: url, dateTaken: dateTaken)
+        
+    }
+    
     // NSJSONSerialization into NSData objects func
     
     static func phorosFromJSONData(data: NSData) -> PhotoResult {
