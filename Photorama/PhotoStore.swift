@@ -32,6 +32,11 @@ class PhotoStore {
         let task = session.dataTaskWithRequest(request){
             (data, response, error) -> Void in
             
+            if let httpResponse = response as? NSHTTPURLResponse {
+                print("Status code: \(httpResponse.statusCode)" )
+                print("headerFields: \(httpResponse.allHeaderFields)")
+            }
+            
             let result = self.processRecentPhotosRequest(data: data, error: error)
             completion(result)
             
