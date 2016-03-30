@@ -39,6 +39,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    
     func collectionView(collectionView: UICollectionView,
                         willDisplayCell cell: UICollectionViewCell,
                                         forItemAtIndexPath indexPath: NSIndexPath) {
