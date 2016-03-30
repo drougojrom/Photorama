@@ -70,10 +70,10 @@
 				30BF2DB01CAAB93800BEF60B /* PhotoDataSource.swift */,
 				30C943951CA930D60016AC76 /* FlickrAPI.swift */,
 				305504171CA956300066BF7A /* Photo.swift */,
+				30E5BE3B1CABCE9A00E5082F /* PhotoCollectionViewCell.swift */,
 				30C943971CA940350016AC76 /* PhotoStore.swift */,
 				30C943881CA929160016AC76 /* Assets.xcassets */,
 				30C9438A1CA929160016AC76 /* LaunchScreen.storyboard */,
-				30E5BE3B1CABCE9A00E5082F /* PhotoCollectionViewCell.swift */,
 				30C9438D1CA929160016AC76 /* Info.plist */,
 			);
 			path = Photorama;
