@@ -31,6 +31,18 @@ class CoreDataStack {
         return coordinator
     }()
     
+    // MARK : NSManagedObjectContext for making temp copies of data
+    
+    lazy var mainQueueContext: NSManagedObjectContext = {
+        
+        let moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        moc.persistentStoreCoordinator = self.persistentStoreCoordinator
+        moc.name = "Main Queue Context (UIContext)"
+        
+        return moc
+        
+    }()
+    
     private lazy var managedObjectModel: NSManagedObjectModel = {
         
         let modelURL = NSBundle.mainBundle().URLForResource(self.managedObjectModelName, withExtension: "momd")!
