@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Photo: Equatable {
+class Photo {
     
     let title: String
     let remoteURL: NSURL
@@ -24,6 +24,8 @@ class Photo: Equatable {
     }
     
 }
+
+extension Photo : Equatable {}
 
 func == (lhs: Photo, rhs: Photo) -> Bool {
     // two photos are the same if they have the same ID

@@ -14,7 +14,7 @@ enum ImageResult {
 }
 
 enum PhotoError: ErrorType {
-    case ImageCreationEror
+    case ImageCreationError
 }
 
 class PhotoStore {
@@ -24,29 +24,7 @@ class PhotoStore {
         return NSURLSession(configuration: config)
     }()
     
-    // MARK : function to ask for recent photos
-    func fetchRecentPhotos(completion completion: (PhotosResult)-> Void) {
-        let url = FlickrAPI.recentPhotosURL()
-        let request = NSURLRequest(URL: url)
-        
-        let task = session.dataTaskWithRequest(request){
-            (data, response, error) -> Void in
-            
-            if let httpResponse = response as? NSHTTPURLResponse {
-                print("Status code: \(httpResponse.statusCode)" )
-                print("headerFields: \(httpResponse.allHeaderFields)")
-            }
-            
-            let result = self.processRecentPhotosRequest(data: data, error: error)
-            completion(result)
-            
-        }
-        task.resume()
-    }
-    
-    // MARK : method process the JSON data into  PhotoResult
-    
-    func processRecentPhotosRequest(data data: NSData? , error: NSError?) -> PhotosResult {
+    func processRecentPhotosRequest(data data: NSData?, error: NSError?) -> PhotosResult {
         guard let jsonData = data else {
             return .Failure(error!)
         }
@@ -54,7 +32,23 @@ class PhotoStore {
         return FlickrAPI.phorosFromJSONData(jsonData)
     }
     
-    // MARK : return photo for image
+    func processImageRequest(data data: NSData?, error: NSError?) -> ImageResult {
+        
+        guard let
+            imageData = data,
+            image = UIImage(data: imageData) else {
+                
+                // Couldn't create an image
+                if data == nil {
+                    return .Failure(error!)
+                }
+                else {
+                    return .Failure(PhotoError.ImageCreationError)
+                }
+        }
+        
+        return .Success(image)
+    }
     
     func fetchImageForPhoto(photo: Photo, completion: (ImageResult) -> Void) {
         
@@ -63,11 +57,10 @@ class PhotoStore {
             return
         }
         
-        
         let photoURL = photo.remoteURL
         let request = NSURLRequest(URL: photoURL)
         
-        let task = session.dataTaskWithRequest(request){
+        let task = session.dataTaskWithRequest(request) {
             (data, response, error) -> Void in
             
             let result = self.processImageRequest(data: data, error: error)
@@ -81,19 +74,17 @@ class PhotoStore {
         task.resume()
     }
     
-    func processImageRequest(data data: NSData?, error: NSError?) -> ImageResult {
-        guard let imageData = data, image = UIImage(data: imageData) else {
-            // couldnt create an image
-            if data == nil {
-                return .Failure(error!)
-            } else {
-                return .Failure(PhotoError.ImageCreationEror)
-            }
-        }
+    func fetchRecentPhotos(completion completion: (PhotosResult) -> Void) {
         
-        return .Success(image)
+        let url = FlickrAPI.recentPhotosURL()
+        let request = NSURLRequest(URL: url)
+        let task = session.dataTaskWithRequest(request, completionHandler: {
+            (data, response, error) -> Void in
+            
+            let result = self.processRecentPhotosRequest(data: data, error: error)
+            completion(result)
+        })
+        task.resume()
     }
-    
-    
     
 }
