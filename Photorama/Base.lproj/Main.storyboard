@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Photorama-->
@@ -26,14 +27,36 @@
                                     <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UICollectionViewCell" id="1xx-sG-pvN">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="1xx-sG-pvN" customClass="PhotoCollectionViewCell" customModule="Photorama" customModuleProvider="target">
                                         <rect key="frame" x="2" y="66" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dss-ML-8pv">
+                                                    <rect key="frame" x="8" y="8" width="74" height="74"/>
+                                                </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="a27-el-018">
+                                                    <rect key="frame" x="35" y="35" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="dss-ML-8pv" secondAttribute="trailing" id="Jyh-Dz-kDb"/>
+                                            <constraint firstItem="a27-el-018" firstAttribute="centerY" secondItem="1xx-sG-pvN" secondAttribute="centerY" id="Orq-vt-EZS"/>
+                                            <constraint firstItem="dss-ML-8pv" firstAttribute="top" secondItem="1xx-sG-pvN" secondAttribute="topMargin" id="PMn-Sf-gJw"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="dss-ML-8pv" secondAttribute="bottom" id="PTG-lI-dLq"/>
+                                            <constraint firstItem="dss-ML-8pv" firstAttribute="centerX" secondItem="1xx-sG-pvN" secondAttribute="centerX" id="cxh-Au-yEi"/>
+                                            <constraint firstItem="a27-el-018" firstAttribute="centerX" secondItem="1xx-sG-pvN" secondAttribute="centerX" id="lsf-FF-NRa"/>
+                                            <constraint firstItem="dss-ML-8pv" firstAttribute="centerY" secondItem="1xx-sG-pvN" secondAttribute="centerY" id="nHx-n7-A5I"/>
+                                            <constraint firstItem="dss-ML-8pv" firstAttribute="leading" secondItem="1xx-sG-pvN" secondAttribute="leadingMargin" id="zm7-17-cHt"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="dss-ML-8pv" id="d0q-JX-bhx"/>
+                                            <outlet property="spinner" destination="a27-el-018" id="Fjo-aL-dpj"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

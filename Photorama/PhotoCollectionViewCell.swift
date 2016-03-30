@@ -22,4 +22,17 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             imageView.image = nil
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        updateWithImage(nil)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        updateWithImage(nil)
+    }
+    
 }
