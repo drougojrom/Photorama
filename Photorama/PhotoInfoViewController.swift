@@ -19,4 +19,23 @@ class PhotoInfoViewController: UIViewController {
     }
     
     var store: PhotoStore!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        store.fetchImageForPhoto(photo) { (result) -> Void in
+            switch result {
+            case let .Success(image):
+                NSOperationQueue.mainQueue().addOperationWithBlock(){
+                    self.imageView.image = image
+                }
+            case let .Failure(error):
+                    print("Error fetching image \(error)")
+                }
+            }
+    }
+
+
+
 }
+
