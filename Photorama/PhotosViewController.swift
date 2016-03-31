@@ -70,6 +70,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
                 let destinationVC = segue.destinationViewController as! PhotoInfoViewController
                 destinationVC.photo = photo
                 destinationVC.store = store
+
             }
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		309920FE1CAD03E500F96739 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309920FD1CAD03E400F96739 /* ImageStore.swift */; };
 		30BF2DB11CAAB93800BEF60B /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF2DB01CAAB93800BEF60B /* PhotoDataSource.swift */; };
 		30C943821CA929160016AC76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C943811CA929160016AC76 /* AppDelegate.swift */; };
 		30C943871CA929160016AC76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C943851CA929160016AC76 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		309920FD1CAD03E400F96739 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		30BF2DB01CAAB93800BEF60B /* PhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
 		30C9437E1CA929160016AC76 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C943811CA929160016AC76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				30C943931CA929580016AC76 /* PhotosViewController.swift */,
 				30E5BE451CAC2AD100E5082F /* Photo+CoreDataProperties.swift */,
 				30E5BE461CAC2AD100E5082F /* Photo.swift */,
+				309920FD1CAD03E400F96739 /* ImageStore.swift */,
 				30E5BE491CAC2C2300E5082F /* CoreDataStack.swift */,
 				30C943851CA929160016AC76 /* Main.storyboard */,
 				30E5BE3D1CABF4A900E5082F /* PhotoInfoViewController.swift */,
@@ -174,6 +177,7 @@
 				30E5BE471CAC2AD100E5082F /* Photo+CoreDataProperties.swift in Sources */,
 				30E5BE3E1CABF4A900E5082F /* PhotoInfoViewController.swift in Sources */,
 				30C943821CA929160016AC76 /* AppDelegate.swift in Sources */,
+				309920FE1CAD03E500F96739 /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
