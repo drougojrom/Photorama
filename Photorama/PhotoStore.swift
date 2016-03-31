@@ -141,4 +141,12 @@ class PhotoStore {
         return photos
     }
     
+    func fetchMainQueueTags(predicate predicate: NSPredicate? =  nil, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [NSManagedObject] {
+        
+        
+        
+        
+        
+    }
+    
 }
