@@ -11,11 +11,10 @@ import CoreData
 
 class TagDataSource: NSObject, UITableViewDataSource {
     
-    var tags: [NSManagedObject] = []
+    var tags : [NSManagedObject] = []
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tags.count
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -27,6 +26,7 @@ class TagDataSource: NSObject, UITableViewDataSource {
         cell.textLabel?.text = name
         
         return cell
+        
     }
     
     

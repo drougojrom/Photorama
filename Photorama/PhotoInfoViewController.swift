@@ -10,7 +10,9 @@ import UIKit
 
 class PhotoInfoViewController: UIViewController {
     
+
     @IBOutlet weak var imageView: UIImageView!
+    
     
     var photo: Photo! {
         didSet {
