@@ -93,26 +93,26 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-By-goF">
                                 <rect key="frame" x="20" y="64" width="560" height="471"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivr-Ml-6TY">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Tags" id="AkT-Jx-pKE"/>
-                                </items>
-                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvr-QE-ozV">
+                                <rect key="frame" x="279" y="559" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Z36-gq-VD5" firstAttribute="top" secondItem="c4t-By-goF" secondAttribute="bottom" constant="65" id="838-A1-MEv"/>
                             <constraint firstItem="c4t-By-goF" firstAttribute="leading" secondItem="7iX-5Q-QOp" secondAttribute="leadingMargin" id="98W-cx-iWY"/>
-                            <constraint firstItem="ivr-Ml-6TY" firstAttribute="centerX" secondItem="c4t-By-goF" secondAttribute="centerX" id="Ced-Dp-gF2"/>
-                            <constraint firstItem="ivr-Ml-6TY" firstAttribute="leading" secondItem="7iX-5Q-QOp" secondAttribute="leading" id="PNj-Zc-g0O"/>
-                            <constraint firstItem="ivr-Ml-6TY" firstAttribute="bottom" secondItem="Z36-gq-VD5" secondAttribute="top" id="faj-pw-XEU"/>
+                            <constraint firstAttribute="bottom" secondItem="Hvr-QE-ozV" secondAttribute="bottom" constant="20" symbolic="YES" id="Y8t-bz-c13"/>
+                            <constraint firstItem="Hvr-QE-ozV" firstAttribute="centerX" secondItem="c4t-By-goF" secondAttribute="centerX" id="lBM-ps-B0F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c4t-By-goF" secondAttribute="trailing" id="qn8-hm-Tx0"/>
                             <constraint firstItem="c4t-By-goF" firstAttribute="top" secondItem="B5z-P9-hRL" secondAttribute="bottom" id="z2f-1I-ZDx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="c4t-By-goF" id="bVr-Cb-dGs"/>
+                        <outlet property="labelView" destination="Hvr-QE-ozV" id="8zR-66-XX8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jan-l3-wFd" userLabel="First Responder" sceneMemberID="firstResponder"/>

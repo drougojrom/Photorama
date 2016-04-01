@@ -10,9 +10,10 @@ import UIKit
 
 class PhotoInfoViewController: UIViewController {
     
-
+    @IBOutlet weak var labelView: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    var counter = 0
     
     var photo: Photo! {
         didSet {
@@ -30,6 +31,9 @@ class PhotoInfoViewController: UIViewController {
             case let .Success(image):
                 NSOperationQueue.mainQueue().addOperationWithBlock(){
                     self.imageView.image = image
+                    self.counter += 1
+                    self.labelView.text = "\(self.counter)"
+                    print(self.counter)
                 }
             case let .Failure(error):
                     print("Error fetching image \(error)")

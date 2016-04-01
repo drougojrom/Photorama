@@ -22,8 +22,6 @@
 		30E5BE471CAC2AD100E5082F /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E5BE451CAC2AD100E5082F /* Photo+CoreDataProperties.swift */; };
 		30E5BE481CAC2AD100E5082F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E5BE461CAC2AD100E5082F /* Photo.swift */; };
 		30E5BE4A1CAC2C2300E5082F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E5BE491CAC2C2300E5082F /* CoreDataStack.swift */; };
-		30EF37FA1CADB10B008427A0 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EF37F91CADB10B008427A0 /* TagsViewController.swift */; };
-		30EF37FC1CADB23D008427A0 /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EF37FB1CADB23D008427A0 /* TagDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +42,6 @@
 		30E5BE451CAC2AD100E5082F /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		30E5BE461CAC2AD100E5082F /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		30E5BE491CAC2C2300E5082F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		30EF37F91CADB10B008427A0 /* TagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
-		30EF37FB1CADB23D008427A0 /* TagDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +82,6 @@
 				309920FD1CAD03E400F96739 /* ImageStore.swift */,
 				30E5BE491CAC2C2300E5082F /* CoreDataStack.swift */,
 				30C943851CA929160016AC76 /* Main.storyboard */,
-				30EF37F91CADB10B008427A0 /* TagsViewController.swift */,
-				30EF37FB1CADB23D008427A0 /* TagDataSource.swift */,
 				30E5BE3D1CABF4A900E5082F /* PhotoInfoViewController.swift */,
 				30BF2DB01CAAB93800BEF60B /* PhotoDataSource.swift */,
 				30C943951CA930D60016AC76 /* FlickrAPI.swift */,
@@ -178,12 +172,10 @@
 				30C943981CA940350016AC76 /* PhotoStore.swift in Sources */,
 				30E5BE481CAC2AD100E5082F /* Photo.swift in Sources */,
 				30BF2DB11CAAB93800BEF60B /* PhotoDataSource.swift in Sources */,
-				30EF37FA1CADB10B008427A0 /* TagsViewController.swift in Sources */,
 				30E5BE4A1CAC2C2300E5082F /* CoreDataStack.swift in Sources */,
 				30E5BE3C1CABCE9A00E5082F /* PhotoCollectionViewCell.swift in Sources */,
 				30E5BE471CAC2AD100E5082F /* Photo+CoreDataProperties.swift in Sources */,
 				30E5BE3E1CABF4A900E5082F /* PhotoInfoViewController.swift in Sources */,
-				30EF37FC1CADB23D008427A0 /* TagDataSource.swift in Sources */,
 				30C943821CA929160016AC76 /* AppDelegate.swift in Sources */,
 				309920FE1CAD03E500F96739 /* ImageStore.swift in Sources */,
 			);
